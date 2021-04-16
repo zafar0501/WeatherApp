@@ -37,12 +37,10 @@ import java.util.List;
 import java.util.Locale;
 
 
-
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, CityAdapter.MessageAdapterListener {
     private List<CityAddress> cityAddressArrayList = new ArrayList<>();
     private RecyclerView recyclerView;
     private CityAdapter mAdapter;
-    private SwipeRefreshLayout swipeRefreshLayout;
     private ActionModeCallback actionModeCallback;
     private ActionMode actionMode;
     private SearchView searchView;
@@ -58,8 +56,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
 
         recyclerView = findViewById(R.id.recycler_view);
-        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setOnRefreshListener(this);
 
         mAdapter = new CityAdapter(this, cityAddressArrayList, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -275,8 +271,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             mode.getMenuInflater().inflate(R.menu.menu_action_mode, menu);
 
-            // disable swipe refresh if action mode is enabled
-            swipeRefreshLayout.setEnabled(false);
             return true;
         }
 
@@ -302,7 +296,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             mAdapter.clearSelections();
-            swipeRefreshLayout.setEnabled(true);
             actionMode = null;
             recyclerView.post(new Runnable() {
                 @Override
