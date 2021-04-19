@@ -1,10 +1,6 @@
 package com.example.utilities;
 
-/**
- * @author vishal kumar
- * @version 1.0
- * @since 06.01.2019
- */
+
 public class Utility {
     private static final String TAG = Utility.class.getSimpleName();
 

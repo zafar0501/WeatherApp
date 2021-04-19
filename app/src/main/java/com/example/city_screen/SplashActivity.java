@@ -19,13 +19,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.weatherapp.R;
 
 
-/**
- * @author vishal kumar
- * @version 1.0
- * @since 06.01.2019
- * <p>
- * SplashActivity is an controller class which detect the device location and ask for permission.
- */
+
 public class SplashActivity extends AppCompatActivity {
 
     static final int PERMISSION_ACCESS_FINE_LOCATION = 0;
