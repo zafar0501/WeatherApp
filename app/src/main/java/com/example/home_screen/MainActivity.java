@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
             for (LatLng latLng : MarkerPointerOnMap.getInstance().getListMap()) {
                 List<Address> addresses = mGPS.getAddress(geocoder, latLng);
+
                 for (Address address : addresses) {
 
                     String city = addresses.get(0).getLocality();
@@ -102,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         CityAddress cityAddress = new CityAddress();
                         cityAddress.setColor(getRandomMaterialColor("400"));
                         cityAddress.setCityName(city);
+
+                        Log.d("Core", "onResume: " + "Lat" + latLng.latitude + ", Lon" + latLng.longitude + city);
                         cityAddress.setLatitude(latLng.latitude);
                         cityAddress.setLongitude(latLng.longitude);
                         cityAddressArrayList.add(cityAddress);

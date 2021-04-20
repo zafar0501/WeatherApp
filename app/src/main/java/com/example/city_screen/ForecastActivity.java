@@ -163,6 +163,8 @@ public class ForecastActivity extends AppCompatActivity {
         recyclerViewD5.setItemAnimator(new DefaultItemAnimator());
         if (getIntent() != null) {
             cityAddress = getIntent().getParcelableExtra("Address");
+
+            Log.d(TAG, "onCreate: "+cityAddress.getCityName());
             fetchUpdateOnSearched(cityAddress.getCityName());
         }
         getWeather(addressStringBuilder);

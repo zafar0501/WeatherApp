@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> implements Filterable {
     private final Context mContext;
     private final List<CityAddress> addressList;
@@ -81,7 +80,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
-        public TextView cityName, cityLat, cityId, cityLnt, cityIcon;
+        public TextView cityName, cityLat, cityLnt, cityIcon;
         public ImageView iconImp, imgProfile;
         public LinearLayout messageContainer;
         public RelativeLayout iconContainer, iconBack, iconFront;
@@ -91,7 +90,6 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
             cityName = view.findViewById(R.id.cityName);
             cityLat = view.findViewById(R.id.cityCountryName);
             cityLnt = view.findViewById(R.id.cityLatLng);
-            cityId = view.findViewById(R.id.cityId);
             cityIcon = view.findViewById(R.id.icon_text);
             iconBack = view.findViewById(R.id.icon_back);
             iconFront = view.findViewById(R.id.icon_front);

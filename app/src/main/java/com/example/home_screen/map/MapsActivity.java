@@ -8,6 +8,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
@@ -80,8 +81,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.mGoogleMap = googleMap;
         this.mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-
-        LatLng cc = new LatLng(mGPS.getLatitude(), mGPS.getLongitude());
+        LatLng cc = new LatLng(23.44, 71.222);
 
 
         geocoder = new Geocoder(this, Locale.getDefault());
@@ -169,7 +169,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //move map camera
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(5));
-        MarkerPointerOnMap.getInstance().getListMap().add(latLng);
+
+        MarkerPointerOnMap.getListMap().add(latLng);
 
 
     }
@@ -227,7 +228,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private BitmapDescriptor bitmapDescriptorFromVector(Context context) {
-        Drawable background = ContextCompat.getDrawable(context, R.drawable.ic_location_pin);
+        Drawable background = ContextCompat.getDrawable(context, R.drawable.ic_location_pin_svgrepo_com);
         background.setBounds(0, 0, background.getIntrinsicWidth(), background.getIntrinsicHeight());
         Bitmap bitmap = Bitmap.createBitmap(background.getIntrinsicWidth(), background.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);

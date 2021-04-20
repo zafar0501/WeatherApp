@@ -43,18 +43,18 @@ public class SettingsCityActivity extends PreferenceActivity
 
         super.onCreate(savedInstanceState);
 
-        LinearLayout root = (LinearLayout) findViewById(android.R.id.list).getParent().getParent().getParent();
-        View bar = LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
-        root.addView(bar, 0);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        addPreferencesFromResource(R.xml.prefs);
+//        LinearLayout root = (LinearLayout) findViewById(android.R.id.list).getParent().getParent().getParent();
+//        View bar = LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+//        root.addView(bar, 0);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//
+//        addPreferencesFromResource(R.xml.prefs);
     }
 
     @Override
@@ -179,16 +179,16 @@ public class SettingsCityActivity extends PreferenceActivity
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         Resources res = getResources();
 
-        ListPreference dateFormatPref = (ListPreference) findPreference("dateFormat");
-        String[] dateFormatsValues = res.getStringArray(R.array.dateFormatsValues);
-        String[] dateFormatsEntries = new String[dateFormatsValues.length];
-
-        EditTextPreference customDateFormatPref = (EditTextPreference) findPreference("dateFormatCustom");
-        customDateFormatPref.setDefaultValue(dateFormatsValues[0]);
-
-
-        dateFormatPref.setDefaultValue(dateFormatsValues[0]);
-        dateFormatPref.setEntries(dateFormatsEntries);
+//        ListPreference dateFormatPref = (ListPreference) findPreference("dateFormat");
+//        String[] dateFormatsValues = res.getStringArray(R.array.dateFormatsValues);
+//        String[] dateFormatsEntries = new String[dateFormatsValues.length];
+//
+//        EditTextPreference customDateFormatPref = (EditTextPreference) findPreference("dateFormatCustom");
+//        customDateFormatPref.setDefaultValue(dateFormatsValues[0]);
+//
+//
+//        dateFormatPref.setDefaultValue(dateFormatsValues[0]);
+//        dateFormatPref.setEntries(dateFormatsEntries);
 
         setListPreferenceSummary("dateFormat");
     }
